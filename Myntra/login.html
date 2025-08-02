@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+      integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <title>Login or Signup</title>
+
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        font-family: "Segoe UI", sans-serif;
+        background: #fff0f0;
+      }
+
+      /* Navbar */
+      .navbar {
+        display: flex;
+        background-color: #ffffff;
+        height: 80px;
+        align-items: center;
+        justify-content: space-evenly;
+        padding: 0 20px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        font-size: 20px;
+        font-weight: bold;
+        position: sticky;
+        top: 0;
+        z-index: 10;
+      }
+
+      #logo {
+        background-image: url("logo.jpg");
+        height: 36px;
+        width: 53px;
+        background-size: cover;
+        cursor: pointer;
+      }
+
+      .icons {
+        display: flex;
+        gap: 30px;
+      }
+
+      .icons a {
+        font-size: 14px;
+        color: #282c3f;
+        letter-spacing: 0.3px;
+        font-weight: 700;
+        text-decoration: none;
+        padding: 28px 0;
+        border-bottom: 5px solid #ffffff;
+        transition: all 0.3s ease;
+      }
+
+      .icons a:hover {
+        border-bottom: 4px solid #f54e77;
+      }
+
+      .icons a sup {
+        color: #ff3f6c;
+        font-size: 10px;
+      }
+
+      .search {
+        display: flex;
+        background-color: #f5f5f5;
+        align-items: center;
+        padding: 0 10px;
+        border-radius: 5px;
+        min-width: 400px;
+      }
+
+      .search-bar {
+        color: #696e79;
+        background-color: #f5f5f5;
+        border: none;
+        height: 40px;
+        width: 250px;
+        flex-grow: 1;
+        outline: none;
+      }
+
+      .search-button i {
+        height: 20px;
+        padding: 10px;
+        border: none;
+      }
+
+      .action {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .action span {
+        font-size: 12px;
+        font-weight: 700;
+      }
+
+      .action a {
+        font-size: 12px;
+        font-weight: 700;
+        text-decoration: none;
+        color: #282c3f;
+        margin-top: 5px;
+        transition: color 0.3s ease;
+      }
+
+      .action a:hover {
+        border-bottom: 4px solid #f54e77;
+      }
+
+      .main-content {
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        min-height: calc(100vh - 80px);
+        padding: 50px 20px;
+      }
+
+      .container {
+        width: 380px;
+        background: white;
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      }
+
+      .banner img {
+        width: 100%;
+        display: block;
+      }
+
+      .form {
+        padding: 20px;
+      }
+
+      .form h2 {
+        margin-bottom: 15px;
+      }
+
+      .input-group {
+        display: flex;
+        align-items: center;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        overflow: hidden;
+        margin-bottom: 15px;
+      }
+
+      .input-group span {
+        padding: 10px;
+        background: #f1f1f1;
+        font-size: 14px;
+        color: #555;
+      }
+
+      .input-group input {
+        flex: 1;
+        padding: 10px;
+        border: none;
+        outline: none;
+        font-size: 14px;
+      }
+
+      .terms {
+        font-size: 13px;
+        margin-bottom: 15px;
+      }
+
+      .terms input {
+        margin-right: 8px;
+      }
+
+      .terms a {
+        color: #e50050;
+        text-decoration: none;
+        font-weight: bold;
+      }
+
+      .btn {
+        width: 100%;
+        background: #888;
+        color: white;
+        padding: 12px;
+        border: none;
+        border-radius: 5px;
+        font-weight: bold;
+        cursor: not-allowed;
+      }
+
+      .btn.active {
+        background: #ff3f6c;
+        cursor: pointer;
+      }
+
+      .help {
+        margin-top: 10px;
+        text-align: center;
+        font-size: 13px;
+      }
+
+      .help a {
+        color: #e50050;
+        text-decoration: none;
+        font-weight: bold;
+      }
+    </style>
+
+    <script
+      src="https://kit.fontawesome.com/a076d05399.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <!-- Header/Navbar -->
+    <header>
+      <div class="navbar">
+        <div class="nav-logo"><div id="logo"></div></div>
+        <div class="icons">
+          <a href="#">MEN</a>
+          <a href="#">WOMEN</a>
+          <a href="#">KIDS</a>
+          <a href="#">HOME & LIVING</a>
+          <a href="#">BEAUTY</a>
+          <a href="#">STUDIO <sup>NEW</sup></a>
+        </div>
+        <div class="search">
+          <div class="search-button">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input
+              class="search-bar"
+              placeholder="Search for products, brands and more"
+            />
+          </div>
+        </div>
+        <div class="action">
+          <i class="fa-regular fa-user"></i>
+          <a href="#">Profile</a>
+        </div>
+        <div class="action">
+          <i class="fa-regular fa-heart"></i>
+          <span class="text">Wishlist</span>
+        </div>
+        <div onclick="opencart()">
+          <div class="action">
+            <i class="fa-solid fa-bag-shopping"></i>
+            <span class="text">Bag</span>
+            <span class="count">0</span>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="main-content">
+      <div class="container">
+        <div class="banner">
+          <img src="banner.jpg" alt="Offer Banner" />
+        </div>
+        <div class="form">
+          <h2><strong>Login</strong> or <strong>Signup</strong></h2>
+          <div class="input-group">
+            <span>+91</span>
+            <input
+              type="tel"
+              id="mobile"
+              placeholder="Mobile Number"
+              maxlength="10"
+              required
+            />
+          </div>
+          <div class="terms">
+            <input type="checkbox" id="agree" />
+            By continuing, I agree to the
+            <a href="#">Terms of Use</a> & <a href="#">Privacy Policy</a> and I
+            am above 18 years old.
+          </div>
+          <button id="continueBtn" class="btn" disabled>CONTINUE</button>
+          <div class="help">
+            Have trouble logging in? <a href="#">Get help</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      const checkbox = document.getElementById("agree");
+      const button = document.getElementById("continueBtn");
+
+      checkbox.addEventListener("change", function () {
+        if (this.checked) {
+          button.disabled = false;
+          button.classList.add("active");
+        } else {
+          button.disabled = true;
+          button.classList.remove("active");
+        }
+      });
+
+      button.addEventListener("click", function () {
+        const mobile = document.getElementById("mobile").value;
+        if (mobile.length !== 10 || isNaN(mobile)) {
+          alert("Please enter a valid 10-digit mobile number.");
+        } else {
+          alert(`OTP sent to +91-${mobile}`);
+        }
+      });
+
+      function opencart() {
+        window.location.href = "cart.html";
+      }
+    </script>
+  </body>
+</html>
